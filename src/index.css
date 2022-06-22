@@ -1,0 +1,21 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.wrapper {
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 20px 10px;
+  background: rgb(13, 138, 221);
+  border-radius: 15px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.title-form {
+  color: white;
+  font-weight: 300;
+  font-size: 22px;
+  letter-spacing: 1px;
+}

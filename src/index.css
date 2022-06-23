@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background: rgba(13, 138, 221, 0.616);
+}
+
 li {
   list-style: none;
 }
@@ -12,13 +16,13 @@ li {
   margin: 0 auto;
   margin-top: 50px;
   padding: 20px 10px;
-  background: rgb(13, 138, 221);
+  background: white;
   border-radius: 15px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .title-form {
-  color: white;
+  color: rgba(13, 138, 221);
   font-weight: 300;
   font-size: 22px;
   letter-spacing: 1px;
@@ -26,8 +30,47 @@ li {
 
 .todo-item {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo-item__block {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.todo-item__checkbox {
+  margin-right: 10px;
+  cursor: pointer;
+}
+.todo-item__checkbox:checked {
+  background: black;
 }
 
 .todo-list {
   margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.todo-item__delete {
+  background: none;
+  border: 1px solid red;
+  padding: 0px 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  transform: scale(1.2, 1.2);
+}
+
+.todo-item__delete:hover {
+  background: red;
+  color: white;
+}
+
+.done { 
+  text-decoration: line-through;
 }

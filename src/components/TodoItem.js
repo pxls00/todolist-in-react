@@ -1,9 +1,8 @@
 import React from 'react'
-
-export default function TodoItem() {
+export default function TodoItem({todo, index}) {
     return (
-        <li>
-            Item
+        <li className='todo-item'>
+           <strong>{++index}.</strong> {todo.title}
         </li>
     )
 }

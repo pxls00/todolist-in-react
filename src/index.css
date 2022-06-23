@@ -3,6 +3,10 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+li {
+  list-style: none;
+}
 .wrapper {
   width: 600px;
   margin: 0 auto;

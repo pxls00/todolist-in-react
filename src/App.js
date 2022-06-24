@@ -1,6 +1,7 @@
 import React from 'react'
 import TodoList from './components/TodoList';
 import Context from './context';
+import TodoForm from './components/TodoForm'
 function App() {
   const [todos, setTodos] = React.useState([
     {id: 1, completed: false, title: 'Buy Bread'},
@@ -22,9 +23,15 @@ function App() {
       todos.filter(todo => todo.id !== id)
     )
   }
+  function addTodos(todo) {
+    setTodos(
+      todos.concat([todo])
+    )
+  }
   return (
-    <Context.Provider value={{removeTodo, todoToggle}}>
+    <Context.Provider value={{removeTodo, todoToggle, addTodos}}>
       <div className="wrapper">
+          <TodoForm />
         <h1 className='title-form'>Todo List</h1>
         <form>
           {todos.length ? <TodoList todos={todos}/> : <p className='todo-no-message'>No Todos...</p>}

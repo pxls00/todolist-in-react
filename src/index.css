@@ -78,3 +78,37 @@ li {
 .todo-no-message {
   margin-top: 15px;
 }
+
+.form-todo {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0px;
+  gap: 10px;
+}
+
+.form-todo input {
+  font-weight: 500;
+  font-size: 16px;
+  border: 2px solid rgba(13, 138, 221);
+  padding: 5px 8px;
+  border-radius: 5px;
+  color: black;
+  width: 100%;
+}
+
+.form-todo input:focus {
+  outline: none;
+}
+
+.form-todo input::placeholder {
+  color: rgba(13, 138, 221, 0.616);
+}
+
+.form-todo button {
+  padding: 0 10px;
+  border: 2px solid rgba(13, 138, 221);
+  color: rgba(13, 138, 221);
+  border-radius: 5px;
+  background: none;
+  cursor: pointer;
+}

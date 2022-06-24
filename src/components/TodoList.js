@@ -6,7 +6,7 @@ function TodoList(props) {
     return (
         <ul className='todo-list'>
             {props.todos.map((todo, i) => {
-               return <TodoItem todo={todo} key={todo.id} index={i} todoToggle={props.todoToggle}/>
+               return <TodoItem todo={todo} key={todo.id} index={i} />
             })}
         </ul>
     )
@@ -14,7 +14,6 @@ function TodoList(props) {
 
 TodoList.prototype = {
     todos: PropTypes.arrayOf(PropTypes.object).isRequired,
-    todoToggle: PropTypes.func.isRequired
 }
 
 export default TodoList

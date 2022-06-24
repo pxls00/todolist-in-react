@@ -1,7 +1,9 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import PropTypes from 'prop-types'
+import Context from '../context'
 
-function TodoItem({todo, index, todoToggle}) {
+function TodoItem({todo, index}) {
+    const {removeTodo, todoToggle} = useContext(Context)
     const classes = []
     if (todo.completed) {
         classes.push('done')
@@ -19,14 +21,13 @@ function TodoItem({todo, index, todoToggle}) {
                 <strong>{++index}.</strong> 
                 {todo.title}
             </span>
-            <button className='todo-item__delete'>&times;</button>
+            <button className='todo-item__delete' onClick={() => {removeTodo(todo.id)}}>&times;</button>
         </li>
     )
 }
 TodoItem.prototype = {
     todo: PropTypes.object.isRequired,
-    index: PropTypes.number,
-    todoToggle: PropTypes.func.isRequired
+    index: PropTypes.number
 } 
 
 export default TodoItem

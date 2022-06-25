@@ -1,13 +1,21 @@
 import React from 'react'
 import TodoList from './components/TodoList';
 import Context from './context';
-import TodoForm from './components/TodoForm'
+import TodoForm from './components/TodoForm';
+import Loader from './components/Loader';
 function App() {
-  const [todos, setTodos] = React.useState([
-    {id: 1, completed: false, title: 'Buy Bread'},
-    {id: 2, completed: true, title: 'Buy Pen'},
-    {id: 3, completed: false, title: 'Buy Tomatoes'}
-  ])
+  const [todos, setTodos] = React.useState([])
+  const [loading, setLoading] = React.useState(true)
+  React.useEffect(() => {
+    setTimeout(() => {
+      fetch('https://jsonplaceholder.typicode.com/todos?_limit=5')
+      .then(response => response.json())
+      .then(todos => {
+        setLoading(false)
+        setTodos(todos)
+      })
+    }, 3000)
+  }, [])
   function todoToggle(id) {
     setTodos(
       todos.map(todo => {
@@ -31,11 +39,10 @@ function App() {
   return (
     <Context.Provider value={{removeTodo, todoToggle, addTodos}}>
       <div className="wrapper">
-          <TodoForm />
+        <TodoForm />
         <h1 className='title-form'>Todo List</h1>
-        <form>
-          {todos.length ? <TodoList todos={todos}/> : <p className='todo-no-message'>No Todos...</p>}
-        </form>
+          {loading && <Loader />}
+          {todos.length ? <TodoList todos={todos}/> : (loading ? null: <p>No Todos...</p>)}
       </div>
     </Context.Provider>
   )

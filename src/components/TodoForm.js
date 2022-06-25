@@ -1,24 +1,23 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext} from 'react'
 import Context from '../context'
+import Model from '../useModel'
 
 function NewTodo() {
-    let [value, setValue] = useState('')
+    const model = Model('')
     const {addTodos} = useContext(Context)
     function createTodo() {
-        if(value.trim()) {
+        if(model.value().trim()) {
             addTodos({
                 id: Date.now(),
                 completed: false,
-                title: value
+                title: model.value()
             })
         }
-        setValue(
-            value = ''
-        )
+        model.clear()
     }
     return (
         <div className='form-todo'>
-            <input placeholder='Need to do..' value={value} onInput={event => setValue(value = event.target.value)}/>
+            <input placeholder='Need to do..' {...model.bind}/>
             <button onClick={(e) => createTodo()}>Submit</button>
         </div>
     )
